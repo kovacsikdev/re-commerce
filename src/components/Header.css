@@ -1,0 +1,19 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 0;
+  background-color: var(--neutral);
+}
+
+.header-categories-links a {
+  margin: 0 12px;
+}
+
+.header a {
+  font-size: 1.25rem;
+}
+
+.header .sub-text {
+  font-size: 0.75rem;
+}

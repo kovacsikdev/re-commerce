@@ -1,0 +1,148 @@
+#checkout-page {
+  padding: 0.5rem;
+}
+
+#checkout-page .checkout-form {
+  display: flex;
+}
+
+#checkout-page .checkout-section {
+  padding: 1rem;
+  width: 100%;
+}
+
+#checkout-page .checkout-section:last-child {
+  max-width: 500px;
+}
+
+#checkout-page .cart-table-wrapper {
+  max-height: 600px;
+  overflow-y: auto;
+  scrollbar-color: var(--primary) transparent;
+  scrollbar-width: 12px;
+}
+
+#checkout-page .cart-table-wrapper::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+#checkout-page .cart-table-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#checkout-page .cart-table-wrapper::-webkit-scrollbar-button {
+  display: none;
+}
+
+#checkout-page .cart-table-wrapper::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 999px;
+}
+
+#checkout-page .cart-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#checkout-page .cart-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--neutral);
+}
+
+#checkout-page .cart-table th,
+#checkout-page .cart-table td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.75rem 0.5rem;
+}
+
+#checkout-page .cart-thumb {
+  width: 100px;
+  object-fit: cover;
+}
+
+#checkout-page .selected-parts-list {
+  margin: 0.5rem 0;
+  padding-left: 1.25rem;
+}
+
+#checkout-page .selected-parts-list li {
+  margin: 0.2rem 0;
+}
+
+#checkout-page .line-item-pricing {
+  display: grid;
+  line-height: 1.2;
+}
+
+#checkout-page .line-item-original-price {
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+#checkout-page .geo-map-placeholder {
+  min-height: 220px;
+  border: 2px dashed var(--primary);
+  display: grid;
+  place-items: center;
+  margin-bottom: 0.75rem;
+}
+
+#checkout-page .map-container {
+  height: 500px;
+  border-radius: 12px;
+  margin-bottom: 0.75rem;
+}
+
+#checkout-page .shipping-fields {
+  display: flex;
+}
+
+#checkout-page .shipping-fields .shipping-field {
+  width: 100%;
+}
+
+#checkout-page input {
+  padding: 0.5rem 0.75rem;
+  background: none;
+  border: none;
+  border-radius: 0px;
+  border-left: 4px solid var(--primary);
+  color: var(--tertiary);
+  width: 100%;
+}
+
+#checkout-page .order-summary {
+  display: grid;
+  gap: 0.35rem;
+  margin: 1rem 0;
+}
+
+#checkout-page .order-summary p {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+}
+
+#checkout-page .order-summary .grand-total {
+  border-top: 1px solid var(--primary);
+  margin-top: 0.25rem;
+  padding-top: 0.5rem;
+}
+
+#checkout-page .submit-order {
+  padding: 0.65rem 1rem;
+}
+
+@media (max-width: 900px) {
+  #checkout-page .cart-table {
+    min-width: 760px;
+  }
+
+  #checkout-page .shipping-grid {
+    grid-template-columns: 1fr;
+  }
+}

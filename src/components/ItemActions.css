@@ -1,0 +1,36 @@
+#item-actions {
+	display: flex;
+  flex-direction: column;
+	width: 115px;
+}
+
+#item-actions .quantity-control {
+	display: flex;
+	align-items: center;
+  justify-content: flex-end;
+}
+
+#item-actions .quantity-control input[type="number"] {
+	all: unset;
+	width: 4ch;
+	text-align: center;
+	font: inherit;
+  appearance: none;
+  -moz-appearance: none;
+}
+
+#item-actions .quantity-control input[type="number"]::-webkit-outer-spin-button,
+#item-actions .quantity-control input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#item-actions .quantity-control button {
+	min-width: 1.75rem;
+	min-height: 1.75rem;
+}
+
+#item-actions .quantity-actions button {
+	width: 100%;
+	margin: 0;
+}

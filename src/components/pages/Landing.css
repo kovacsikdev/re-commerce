@@ -1,0 +1,9 @@
+#landing-page .recommended {
+  display: flex;
+  justify-content: space-between;
+}
+
+#landing-page .specials {
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,0 +1,83 @@
+#categories {
+  padding: 0.5rem;
+}
+
+#categories h2 {
+  font-size: 3rem;
+}
+
+#categories .categories-toolbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+#categories .categories-toolbar input,
+#categories .categories-toolbar select {
+  padding: 0.5rem 0.75rem;
+  background: none;
+  border: none;
+  border-radius: 0px;
+  border-left: 4px solid var(--primary);
+  color: var(--tertiary);
+}
+
+#categories .categories-toolbar select option {
+  background-color: var(--neutral);
+}
+
+#categories .categories-toolbar input {
+  flex: 1;
+}
+
+#categories .categories-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#categories .categories-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: var(--neutral);
+}
+
+#categories .categories-table-row {
+  cursor: pointer;
+}
+
+#categories .categories-table-row:hover td {
+  border-top: 4px solid var(--primary);
+  border-bottom: 4px solid var(--primary);
+}
+
+#categories .categories-table th,
+#categories .categories-table td {
+  text-align: left;
+  padding: 2rem 0.5rem;
+}
+
+#categories .categories-table th:nth-last-child(2) {
+  min-width: 200px;
+}
+
+#categories .categories-table td:nth-last-child(2) {
+  font-size: 1.25rem;
+}
+
+#categories .img-hero-item {
+  width: 100px;
+  object-fit: cover;
+}
+
+@media (max-width: 720px) {
+  #categories .categories-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #categories .categories-table {
+    min-width: 640px;
+  }
+}
