@@ -1,7 +1,7 @@
 import { Product } from "./types";
 
 export const formatPrice = (value: number): string =>
-  `$${value.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+  `${value.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} CR`;
 
 export const displayPrice = (item: Product) => {
   return item.discount ? (
