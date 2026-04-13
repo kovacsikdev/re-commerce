@@ -111,7 +111,7 @@ export const ItemImageGallery = ({
           )
         ) : (
           <a
-            href={selectedImage}
+            href={resolveImageSrc(selectedImage)}
             target="_blank"
             rel="noopener noreferrer"
             className="img-hero-popover-link"
