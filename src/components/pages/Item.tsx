@@ -6,7 +6,7 @@ import { ItemImageGallery } from "../ItemImageGallery";
 import { ItemActions } from "../ItemActions";
 import { useCart } from "../../context/cart-context";
 import { fetchItemById } from "../../lib/product-api";
-import { formatPrice } from "../../lib/helpers";
+import { formatPrice, displayPrice } from "../../lib/helpers";
 
 import "./Item.css";
 
@@ -101,18 +101,7 @@ export const ItemPageClient = ({ itemId }: ItemPageClientProps) => {
           <h1 className="product-name">{item.name}</h1>
           <div className="product-price-wrapper">
             <div className="product-price">
-              {
-                item.discount ? (
-                  <>
-                    <strong>{formatPrice(item.discount)}</strong>
-                    <div className="product-discount">
-                      <s>{formatPrice(item.price)}</s>
-                    </div>
-                  </>
-                ) : (
-                  <strong>{formatPrice(item.price)}</strong>
-                )
-              }
+              {displayPrice(item)}
             </div>
             <div style={{textAlign: "center"}}>
               <div>Quantity</div>

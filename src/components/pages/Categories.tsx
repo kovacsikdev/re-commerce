@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { fetchCategory } from "../../lib/product-api";
 import { type Category } from "../../lib/types";
-import { formatPrice, resolveImageSrc } from "../../lib/helpers";
+import { formatPrice, resolveImageSrc, displayPrice } from "../../lib/helpers";
 import { ItemActions } from "../ItemActions";
 
 import "./Categories.css";
@@ -33,14 +33,14 @@ export const CategoriesPageClient = ({
   useEffect(() => {
     // Scroll to top on mount
     window.scrollTo(0, 0);
-    
+
     // Hydration guard to prevent rendering on the server and triggering React Query fetches during SSR
     setIsMounted(true);
   }, []);
 
   const normalizedFilter = useMemo(
     () => filterText.trim().toLowerCase(),
-    [filterText]
+    [filterText],
   );
 
   const filteredAndSortedItems = useMemo(() => {
@@ -102,7 +102,9 @@ export const CategoriesPageClient = ({
         />
         <select
           value={priceSort}
-          onChange={(event) => setPriceSort(event.target.value as "desc" | "asc")}
+          onChange={(event) =>
+            setPriceSort(event.target.value as "desc" | "asc")
+          }
           aria-label="Sort items by price"
         >
           <option value="desc">Price high to low</option>
@@ -131,7 +133,8 @@ export const CategoriesPageClient = ({
                     alt={item.name}
                   />
                 </td>
-                <td>{item.name}
+                <td>
+                  {item.name}
                   <p>
                     <Link href={`/item/${item.id}`} className="link">
                       View details
@@ -139,8 +142,12 @@ export const CategoriesPageClient = ({
                   </p>
                 </td>
                 <td className="color-primary-light">{item.description}</td>
-                <td>{formatPrice(item.price ?? 0)}</td>
-                <td><ItemActions itemId={item.id} /></td>
+                <td>
+                  {displayPrice(item)}
+                </td>
+                <td>
+                  <ItemActions itemId={item.id} />
+                </td>
               </tr>
             ))}
           </tbody>

@@ -1,13 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { formatPrice, resolveImageSrc } from "../lib/helpers";
+import { formatPrice, resolveImageSrc, displayPrice } from "../lib/helpers";
 import { Product } from "../lib/types";
 
 import "./ItemBox.css";
 
 export const ItemBox = (item: Product) => {
-  const discountedPrice = Math.max(item.price - item.discount, 0);
   return (
     <div id="ItemBox">
       <Link key={item.id} href={`/item/${item.id}`} className="link-card">
@@ -17,10 +16,7 @@ export const ItemBox = (item: Product) => {
         <div className="description">
           <h3>{item.name}</h3>
           <p className="color-primary-light">{item.short_description}</p>
-          <p>
-            <s>{formatPrice(item.price ?? 0)}</s>{" "}
-            <strong>{formatPrice(discountedPrice)}</strong>
-          </p>
+          <p>{displayPrice(item)}</p>
         </div>
       </Link>
     </div>
