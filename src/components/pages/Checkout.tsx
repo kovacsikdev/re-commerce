@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useCart } from "../../context/cart-context";
 import { fetchItemById } from "../../lib/product-api";
-import { formatPrice } from "../../lib/helpers";
+import { formatPrice, resolveImageSrc } from "../../lib/helpers";
 import { ItemActions } from "../ItemActions";
 import { Map } from "../Map";
 
@@ -205,7 +205,7 @@ export const CheckoutClient = () => {
                       <td>
                         <img
                           className="cart-thumb"
-                          src={entry.product?.img_hero_url}
+                          src={resolveImageSrc(entry.product?.img_hero_url)}
                           alt={entry.product?.name}
                         />
                       </td>

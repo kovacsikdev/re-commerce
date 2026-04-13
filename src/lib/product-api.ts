@@ -1,6 +1,9 @@
 import { type Product, Category } from "./types";
 
-const PRODUCTS_API_BASE_URL = process.env.PRODUCTS_API_BASE_URL ?? 'http://localhost:3001';
+const PRODUCTS_API_BASE_URL =
+  process.env.NODE_ENV === 'production'
+    ? 'https://yozqdza6w6.execute-api.us-east-1.amazonaws.com'
+    : 'http://localhost:3001';
 const REQUEST_TIMEOUT_MS = 10_000;
 
 const mergeSignals = (signals: Array<AbortSignal | undefined>): AbortSignal | undefined => {

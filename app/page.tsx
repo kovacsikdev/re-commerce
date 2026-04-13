@@ -1,4 +1,5 @@
 import { LandingClient } from "../src/components/pages/Landing";
+import { resolveImageSrc } from "../src/lib/helpers";
 
 const LandingPage = () => {
   return (
@@ -15,7 +16,7 @@ const LandingPage = () => {
         <div className="landing-header-img">
           <img
             style={{ width: "1500px" }}
-            src="/backgrounds/lab_1.webp"
+            src={resolveImageSrc("/backgrounds/lab_1.webp")}
             alt="landing_bg"
           />
         </div>

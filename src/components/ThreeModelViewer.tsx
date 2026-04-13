@@ -111,6 +111,8 @@ export const ThreeModelViewer = ({ modelUrl, itemName }: ThreeModelViewerProps) 
 
   useEffect(() => {
     const loader = new GLTFLoader();
+    loader.setCrossOrigin('anonymous');
+
     const dracoLoader = new DRACOLoader();
     dracoLoader.setDecoderPath('/draco/');
     loader.setDRACOLoader(dracoLoader);

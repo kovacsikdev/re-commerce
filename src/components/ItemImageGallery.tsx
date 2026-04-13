@@ -2,6 +2,7 @@
 
 import dynamic from 'next/dynamic';
 import { useEffect, useMemo, useState } from 'react';
+import { resolveImageSrc } from '../lib/helpers';
 
 const ThreeModelViewer = dynamic(
   () => import('./ThreeModelViewer').then((mod) => mod.ThreeModelViewer),
@@ -82,7 +83,7 @@ export const ItemImageGallery = ({
             ) : (
               <img
                 className="img-thumbnail-item"
-                src={entry.url}
+                src={resolveImageSrc(entry.url)}
                 alt={`${itemName} preview ${index + 1}`}
               />
             )}
@@ -93,7 +94,7 @@ export const ItemImageGallery = ({
       <div className="img-gallery-preview">
         {isModelSelected && selectedEntry ? (
           isModelViewerOpen ? (
-            <ThreeModelViewer modelUrl={selectedEntry.url} itemName={itemName} />
+            <ThreeModelViewer modelUrl={resolveImageSrc(selectedEntry.url)} itemName={itemName} />
           ) : (
             <button
               type="button"
@@ -102,7 +103,7 @@ export const ItemImageGallery = ({
             >
               <img
                 className="img-hero-item img-hero-item--dimmed"
-                src={heroImageUrl}
+                src={resolveImageSrc(heroImageUrl)}
                 alt={itemName}
               />
               <span className="model-preview-overlay">Click to view the item in 3D</span>
@@ -117,7 +118,7 @@ export const ItemImageGallery = ({
           >
             <img
               className="img-hero-item"
-              src={selectedImage}
+              src={resolveImageSrc(selectedImage)}
               alt={itemName}
             />
           </a>

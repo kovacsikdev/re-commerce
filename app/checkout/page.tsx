@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { CheckoutClient } from "../../src/components/pages/Checkout";
+import { resolveImageSrc } from "../../src/lib/helpers";
 
 const CheckoutPage = () => {
   return (
@@ -15,7 +16,7 @@ const CheckoutPage = () => {
           <div className="landing-header-img">
             <img
               style={{ width: "1500px" }}
-              src="/backgrounds/shipping_3.webp"
+              src={resolveImageSrc("/backgrounds/shipping_3.webp")}
               alt="landing_bg"
             />
           </div>

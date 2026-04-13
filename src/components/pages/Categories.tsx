@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { fetchCategory } from "../../lib/product-api";
 import { type Category } from "../../lib/types";
-import { formatPrice } from "../../lib/helpers";
+import { formatPrice, resolveImageSrc } from "../../lib/helpers";
 import { ItemActions } from "../ItemActions";
 
 import "./Categories.css";
@@ -127,7 +127,7 @@ export const CategoriesPageClient = ({
                 <td>
                   <img
                     className="img-hero-item"
-                    src={item.img_hero_url}
+                    src={resolveImageSrc(item.img_hero_url)}
                     alt={item.name}
                   />
                 </td>
