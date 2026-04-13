@@ -1,5 +1,22 @@
+import type { Metadata } from "next";
 import { LandingClient } from "../src/components/pages/Landing";
 import { resolveImageSrc } from "../src/lib/helpers";
+import { DEFAULT_OG_IMAGE } from "../src/lib/seo";
+
+export const metadata: Metadata = {
+  title: "Survival Necessities",
+  description:
+    "Browse biohazard-grade weapons, medical gear, and tactical supplies designed for hostile outbreak zones.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Survival Necessities",
+    description:
+      "Browse biohazard-grade weapons, medical gear, and tactical supplies designed for hostile outbreak zones.",
+    images: [DEFAULT_OG_IMAGE],
+  },
+};
 
 const LandingPage = () => {
   return (

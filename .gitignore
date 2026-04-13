@@ -10,7 +10,8 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
-public
+public/items
+public/backgrounds
 *.local
 /.next
 .env

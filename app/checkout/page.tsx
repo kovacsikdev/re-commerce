@@ -1,6 +1,19 @@
 import { Suspense } from "react";
+import type { Metadata } from "next";
 import { CheckoutClient } from "../../src/components/pages/Checkout";
 import { resolveImageSrc } from "../../src/lib/helpers";
+
+export const metadata: Metadata = {
+  title: "Checkout Protocol",
+  description: "Complete your order and schedule secure delivery coordinates.",
+  alternates: {
+    canonical: "/checkout",
+  },
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 
 const CheckoutPage = () => {
   return (
