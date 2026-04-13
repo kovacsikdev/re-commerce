@@ -135,8 +135,8 @@ export const CheckoutClient = () => {
 
   const totalDiscount = Math.max(originalTotal - total, 0);
 
-  const shippingFee = total * SHIPPING_RATE;
-  const grandTotal = total + shippingFee;
+  const shippingFee = Number((total * SHIPPING_RATE).toFixed(2));
+  const grandTotal = Number((total + shippingFee).toFixed(2));
 
   const isGiftCardValid = /^[0-9]{16}$/.test(giftCard);
   const isLatValid =
