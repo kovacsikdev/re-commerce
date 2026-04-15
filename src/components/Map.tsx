@@ -20,9 +20,12 @@ export const Map: React.FC<MapProps> = ({
   const markerRef = React.useRef<mapboxgl.Marker | null>(null);
 
   React.useEffect(() => {
-    const MAP_API = process.env.NEXT_PUBLIC_MAP_API;
+    const isProduction = process.env.NODE_ENV === "production";
+    const MAP_API = isProduction
+      ? process.env.NEXT_PUBLIC_MAP_API_PROD
+      : process.env.NEXT_PUBLIC_MAP_API;
     if (!MAP_API) {
-      console.error("NEXT_PUBLIC_MAP_API environment variable is not set");
+      console.error("Map API environment variable is not set.");
       return;
     }
     mapboxgl.accessToken = MAP_API;
@@ -40,7 +43,7 @@ export const Map: React.FC<MapProps> = ({
       // Add fullscreen control
       mapInstanceRef.current.addControl(
         new mapboxgl.FullscreenControl(),
-        "top-right"
+        "top-right",
       );
     }
 
