@@ -100,7 +100,11 @@ export const CategoriesPageClient = ({
           placeholder="Filter by name or description"
           aria-label="Filter items by name or description"
         />
-        <select
+      </div>
+
+      <div className="categories-table-wrapper">
+        <div className="sort">
+          <select
           value={priceSort}
           onChange={(event) =>
             setPriceSort(event.target.value as "desc" | "asc")
@@ -110,9 +114,7 @@ export const CategoriesPageClient = ({
           <option value="desc">Price high to low</option>
           <option value="asc">Price low to high</option>
         </select>
-      </div>
-
-      <div className="categories-table-wrapper">
+        </div>
         <table className="categories-table">
           <thead>
             <tr>
@@ -127,24 +129,25 @@ export const CategoriesPageClient = ({
             {filteredAndSortedItems.map((item) => (
               <tr key={item.id}>
                 <td>
-                  <img
-                    className="img-hero-item"
-                    src={resolveImageSrc(item.img_hero_url)}
-                    alt={item.name}
-                  />
+                  <Link href={`/item/${item.id}`} className="link">
+                  {item.discount_description && <div className="item-discount-badge">{item.discount_description}</div>}
+                    <img
+                      className="img-hero-item"
+                      src={resolveImageSrc(item.img_hero_url)}
+                      alt={item.name}
+                    />
+                  </Link>
                 </td>
                 <td>
                   {item.name}
                   <p>
-                    <Link href={`/item/${item.id}`} className="link">
+                    <Link href={`/item/${item.id}`}>
                       View details
                     </Link>
                   </p>
                 </td>
                 <td className="color-primary-light">{item.description}</td>
-                <td>
-                  {displayPrice(item)}
-                </td>
+                <td>{displayPrice(item)}</td>
                 <td>
                   <ItemActions itemId={item.id} />
                 </td>

@@ -203,11 +203,14 @@ export const CheckoutClient = () => {
                   return (
                     <tr key={entry.id}>
                       <td>
-                        <img
-                          className="cart-thumb"
-                          src={resolveImageSrc(entry.product?.img_hero_url)}
-                          alt={entry.product?.name}
-                        />
+                        <Link href={`/item/${entry.id}`} className="link">
+                        {entry.product?.discount_description && <div className="item-discount-badge">{entry.product.discount_description}</div>}
+                          <img
+                            className="cart-thumb"
+                            src={resolveImageSrc(entry.product?.img_hero_url)}
+                            alt={entry.product?.name}
+                          />
+                        </Link>
                       </td>
                       <td>
                         {entry.product?.name}

@@ -13,8 +13,23 @@
   margin-bottom: 0.75rem;
 }
 
-#categories .categories-toolbar input,
-#categories .categories-toolbar select {
+#categories .link {
+  display: block;
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+
+#categories .link .item-discount-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 0.75rem;
+  padding: 2px;
+}
+
+#categories input,
+#categories select {
   padding: 0.5rem 0.75rem;
   background: none;
   border: none;
@@ -23,12 +38,20 @@
   color: var(--tertiary);
 }
 
-#categories .categories-toolbar select option {
+#categories select option {
   background-color: var(--neutral);
 }
 
-#categories .categories-toolbar input {
+#categories input {
   flex: 1;
+}
+
+#categories .categories-table-wrapper {
+  display: flex;
+}
+
+#categories .categories-table-wrapper .sort {
+  margin: 2rem 2rem 2rem 0;
 }
 
 #categories .categories-table {
@@ -67,8 +90,9 @@
 }
 
 #categories .img-hero-item {
-  width: 100px;
-  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 @media (max-width: 720px) {

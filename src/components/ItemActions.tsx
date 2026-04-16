@@ -53,8 +53,9 @@ export const ItemActions = ({ itemId, selectedPartIds, onQuantityChange }: ItemA
           type="button"
           onClick={decrementQuantity}
           aria-label="Decrease quantity"
+          className="btn-quantity btn-quantity-left"
         >
-          -
+          {"<"}
         </button>
         <input
           id="quantity"
@@ -62,6 +63,7 @@ export const ItemActions = ({ itemId, selectedPartIds, onQuantityChange }: ItemA
           min={0}
           max={10}
           value={quantity}
+          readOnly
           onChange={(e) =>
             setLocalQuantity(
               Math.max(0, Math.min(10, Number(e.target.value || 0))),
@@ -73,8 +75,9 @@ export const ItemActions = ({ itemId, selectedPartIds, onQuantityChange }: ItemA
           type="button"
           onClick={incrementQuantity}
           aria-label="Increase quantity"
+          className="btn-quantity btn-quantity-right"
         >
-          +
+          {">"}
         </button>
       </div>
       <div className="quantity-actions">

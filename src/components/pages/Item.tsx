@@ -101,6 +101,7 @@ export const ItemPageClient = ({ itemId }: ItemPageClientProps) => {
           <h1 className="product-name">{item.name}</h1>
           <div className="product-price-wrapper">
             <div className="product-price">
+              {item.discount_description && <div className="item-discount-badge">{item.discount_description}</div>}
               {displayPrice(item)}
             </div>
             <div style={{textAlign: "center"}}>

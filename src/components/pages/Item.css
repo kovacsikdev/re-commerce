@@ -163,6 +163,7 @@
 }
 
 #item-page .product-details .product-price {
+  position: relative;
   font-size: 2rem;
   font-weight: bold;
   border-left: 4px solid var(--primary);
@@ -171,6 +172,13 @@
   flex: 1;
   align-content: center;
   margin: 12px 12px 12px 0;
+}
+
+#item-page .product-details .product-price .item-discount-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 0.5em;;
 }
 
 #item-page .parts-list {

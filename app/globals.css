@@ -116,3 +116,9 @@ button:disabled:hover {
   margin: 0;
   font-size: 4rem;
 }
+
+.item-discount-badge {
+  background-color: var(--primary);
+  color: var(--tertiary);
+  padding: 8px;
+}

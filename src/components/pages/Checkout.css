@@ -59,9 +59,25 @@
   padding: 0.75rem 0.5rem;
 }
 
-#checkout-page .cart-thumb {
+#checkout-page .link {
+  display: block;
   width: 100px;
-  object-fit: cover;
+  height: 100px;
+  position: relative;
+}
+
+#checkout-page .link .item-discount-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 0.75rem;
+  padding: 2px;
+}
+
+#checkout-page .cart-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 #checkout-page .selected-parts-list {
@@ -118,7 +134,7 @@
 #checkout-page .order-summary {
   display: grid;
   gap: 0.35rem;
-  margin: 1rem 0;
+  margin: 100px 0;
 }
 
 #checkout-page .order-summary p {
