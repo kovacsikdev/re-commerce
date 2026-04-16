@@ -4,6 +4,12 @@ import { ItemPageClient } from '../../../src/components/pages/Item';
 import { fetchItemById } from '../../../src/lib/product-api';
 import { DEFAULT_OG_IMAGE } from '../../../src/lib/seo';
 
+const fetchItemMetadata = async (id: string) => {
+  'use cache';
+
+  return fetchItemById(id);
+};
+
 export const generateMetadata = async ({
   params,
 }: {
@@ -13,7 +19,7 @@ export const generateMetadata = async ({
   const id = decodeURIComponent(rawId);
 
   try {
-    const item = await fetchItemById(id);
+    const item = await fetchItemMetadata(id);
     const title = item.name;
     const description = item.short_description || item.description;
     const image = item.img_hero_url || DEFAULT_OG_IMAGE;
