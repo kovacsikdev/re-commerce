@@ -29,6 +29,8 @@ export const ItemPageClient = ({ itemId }: ItemPageClientProps) => {
     queryFn: ({ signal }) => fetchItemById(itemId, signal),
   });
 
+  const disabledSelectionTooltip = "Set quantity to 1 or more to select an upgrade.";
+
   useEffect(() => {
     // Scroll to top on mount
     window.scrollTo(0, 0);
@@ -120,13 +122,18 @@ export const ItemPageClient = ({ itemId }: ItemPageClientProps) => {
           <div className="parts-list">
             {item.parts.map((part) => {
               const isSelected = selectedPartIds.includes(part.id);
+              const isSelectionDisabled = selectedQuantity === 0;
 
               return (
-                <div key={part.id} className="part-card">
+                <div
+                  key={part.id}
+                  className="part-card"
+                  title={isSelectionDisabled ? disabledSelectionTooltip : undefined}
+                >
                   <input
                     id={`part-${part.id}`}
                     type="checkbox"
-                    disabled={selectedQuantity === 0}
+                    disabled={isSelectionDisabled}
                     checked={isSelected}
                     onChange={() => togglePartSelection(part.id)}
                   />
